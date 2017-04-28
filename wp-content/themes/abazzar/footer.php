@@ -84,7 +84,7 @@
     <div id="facebookcontainer">
         <div class="fb_close_box"></div>
         <div id="inner_facebook">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdailyajkerbazar%2F&tabs&width=180&height=170&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=483739645115108" width="180" height="170" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdailyajkerbazar%2F&tabs&width=190&height=230&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=483739645115108" width="200" height="230" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
         </div>
     </div>
 </div>
