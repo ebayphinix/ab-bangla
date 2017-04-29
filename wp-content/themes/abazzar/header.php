@@ -10,6 +10,8 @@
 <html <?php language_attributes(); ?>>
     <head>
         <meta charset="<?php bloginfo('charset'); ?>">
+        <meta name="language" content="bengali"/>
+        <meta http-equiv="refresh" content="500"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,7 +27,7 @@
     <div id="page" class="hfeed site">
             <div class="top_header">
                 <div class="container">
-                    <div class="row">
+                    <div class="row hidden-xs-down">
                         <div class="col-xs-12 col-sm-12 ab_common_ads mrb10">
                             <?php echo do_shortcode('[amads id="674" size="970x90" title="Header 970x90"]'); ?>
                         </div>
@@ -56,12 +58,12 @@
                                 <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
                                     <img class="responsive" alt="ajkerbazzar.com" src="<?php echo get_template_directory_uri(); ?>/images/logo.png">
                                 </a> 
-                                <p class="bangla_date">
+                                <p class="bangla_date hidden-xs-down">
                                     <?php echo "ঢাকা, " ?><?php echo do_shortcode('[bangla_day]'); ?>, <?php echo do_shortcode('[bangla_time]'); ?> ।  <?php echo do_shortcode('[english_date]'); ?>, <?php echo do_shortcode('[bangla_date]'); ?>,  <?php echo do_shortcode('[hijri_date]'); ?>
                                 </p>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6">    
+                        <div class="col-xs-12 col-sm-6 hidden-xs-down">    
                             <div class="ab-other pull-right">
                                 <a class="btn btn-abtv btn-xs" href="http://abtv.ajkerbazzar.com/" target="_blank"><img alt="abtv.com" title="abtv" src="<?php echo get_template_directory_uri(); ?>/images/abtv-icon.png"></a>
                                 <a class="btn btn-success btn-xs" target="_blank" href="http://en.ajkerbazzar.com/">English</a>
@@ -87,13 +89,8 @@
             <div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar">
 
                 <a class="skip-link screen-reader-text sr-only" href="#content"><?php _e('Skip to content', 'ajkerbazzar'); ?></a>
-
                 <nav class="navbar navbar-dark bg-inverse site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-
-
                     <div class="container">
-
-
                         <div class="navbar-header">
 
                             <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->

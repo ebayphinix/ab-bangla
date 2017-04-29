@@ -17,7 +17,7 @@ require get_template_directory() . '/inc/settings.php';
                     <div class="col-xs-12 col-sm-7">
                         <div class="row mrb20">
                             <div class="col-xs-12 col-sm-12">
-                                <div class="heading"><h3>সর্বশেষ</h3></div>
+                            <div class="heading"><h3>সর্বশেষ</h3></div>
                             </div>
                             <div class="col-xs-12 col-sm-8">  
                                 <?php
@@ -47,11 +47,11 @@ require get_template_directory() . '/inc/settings.php';
                                 endwhile;
                                 wp_reset_postdata();
                                 ?>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 addvertise">
-                                        <?php echo do_shortcode('[amads id="679" size="468x60" title="After lead news 468x60"]'); ?>
-                                    </div>
-                                </div>
+                            <div class="row">
+                            <div class="col-xs-12 col-sm-12 addvertise">
+                                <?php echo do_shortcode('[amads id="679" size="468x60" title="After lead news 468x60"]'); ?>
+                            </div>
+                        </div>
                             </div>
                             <div class="col-xs-12 col-sm-4">
                                 <?php
@@ -73,7 +73,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-6 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(7) ?>
                                             <div class="rm-holder">
@@ -86,7 +86,7 @@ require get_template_directory() . '/inc/settings.php';
                                         ?>
                                         <div class="news-item">
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-4 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-4 col-sm-4 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>  
                                             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                         </div>
@@ -100,116 +100,6 @@ require get_template_directory() . '/inc/settings.php';
                                 </div>
                             </div>
                         </div> 
-                    </div>
-                    <div class="col-xs-12 col-sm-5">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="heading">
-                                    <h3 class="panel-heading">পুঁজিবাজার</h3>
-                                </div>
-                                <ul class="list-parent">
-                                    <?php
-                                    /*
-                                     * STICKY POSTS
-                                     */
-                                    $args_sticky = array(
-                                        'posts_per_page' => 1,
-                                        'cat' => $cat_stockmarket,
-                                        'post__in' => get_option('sticky_posts'),
-                                        'post_status' => 'publish',
-                                    );
-                                    $the_query = new WP_Query($args_sticky);
-                                    while ($the_query->have_posts()) : $the_query->the_post();
-                                        ?> 
-                                        <li class="list-item">
-                                            <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
-                                            <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                            <?php endif; ?>
-                                            <?php echo excerpt(15) ?>
-                                            <p class="rm-holder">
-                                                <?php echo read_more(get_the_ID()); ?>
-                                            </p>                                   
-                                        </li>
-                                        <?php
-                                    endwhile;
-                                    wp_reset_postdata();
-                                    /*
-                                     * NON-STICKY POSTS
-                                     */
-                                    $args = array(
-                                        'posts_per_page' => 3,
-                                        'cat' => $cat_stockmarket,
-                                        'post__not_in' => get_option('sticky_posts'),
-                                        'post_status' => 'publish',
-                                    );
-                                    $the_query = new WP_Query($args);
-                                    while ($the_query->have_posts()) : $the_query->the_post();
-                                        ?>
-                                        <li class="list-item">
-                                            <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-4 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                            <?php endif; ?>  
-                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                        </li>
-                                        <?php
-                                    endwhile;
-                                    wp_reset_postdata();
-                                    ?>
-                                    <li class="list-item rmholder">
-                                        <?php echo category_read_more($cat_stockmarket); ?> 
-                                    </li>  
-                                </ul>
-
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="row hidden-xs-down">
-                                    <div class="col-xs-12 col-sm-12">
-                                        <h4><span style="color:red">সরাসরি সম্প্রচার</span></h4>
-                                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/11su7nqrT0A?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>                                       
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12">
-                                        <div class="heading">
-                                            <h3 class="panel-heading">পুঁজিবাজার অভিমত</h3>
-                                        </div>
-                                        <?php
-                                        $args = array('posts_per_page' => 1, 'post_status' => 'publish', 'category' => $cat_stockmarket_opinion);
-                                        $postslist = get_posts($args);
-                                        foreach ($postslist as $index => $post) :
-                                            setup_postdata($post);
-                                            ?> 
-                                            <div>                                         
-                                                <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                    <div class="col-xs-3 col-sm-12 plnone">
-                                                        <a href="<?php the_permalink(); ?>"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></a>
-                                                    </div>
-                                                <?php endif; ?>
-                                                <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>                                 
-                                            </div>
-                                            <?php
-                                        endforeach;
-                                        wp_reset_postdata();
-                                        ?>
-
-                                        <div class="rmholder">
-                                            <?php echo category_read_more($cat_stockmarket_opinion); ?> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 addvertise">
-                                <?php echo do_shortcode('[amads id="3627" size="468x60" title="Home Spacial Edition"]'); ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mrb20">
-                    <div class="col-xs-12 col-sm-7">
-
                         <div class="row mrb20">
                             <div class="col-xs-12 col-sm-12">
                                 <div class="heading"><h3>অর্থ-শিল্প-বাণিজ্য</h3></div>
@@ -229,12 +119,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -255,12 +145,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -281,12 +171,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -309,12 +199,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -334,13 +224,13 @@ require get_template_directory() . '/inc/settings.php';
                                 $the_query = new WP_Query($args_sticky);
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
-                                    <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                   <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -361,12 +251,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -389,12 +279,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -415,12 +305,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -441,12 +331,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -469,12 +359,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -495,12 +385,12 @@ require get_template_directory() . '/inc/settings.php';
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
                                     <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -520,13 +410,13 @@ require get_template_directory() . '/inc/settings.php';
                                 $the_query = new WP_Query($args_sticky);
                                 while ($the_query->have_posts()) : $the_query->the_post();
                                     ?> 
-                                    <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                        <div class="featured-image col-xs-3 col-sm-12"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
-                                    <?php endif; ?>
-                                    <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
-                                    <div class="rmholder">
-                                        <?php echo read_more(get_the_ID()); ?>
-                                    </div>                                   
+                                        <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
+                                            <div class="featured-image"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                        <?php endif; ?>
+                                        <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> 
+                                        <div class="rmholder">
+                                            <?php echo read_more(get_the_ID()); ?>
+                                        </div>                                   
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -549,7 +439,7 @@ require get_template_directory() . '/inc/settings.php';
                                             ?> 
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-12 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                   
@@ -600,7 +490,7 @@ require get_template_directory() . '/inc/settings.php';
                                             ?> 
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-12 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                   
@@ -640,7 +530,7 @@ require get_template_directory() . '/inc/settings.php';
                         </div>
                         <div class="row mrb20">
                             <div class="col-xs-12 col-sm-12 addvertise">
-                                <?php echo do_shortcode('[amads id="927" size="728x90" title="Home-728x90-2nd"]'); ?>
+                            <?php echo do_shortcode('[amads id="927" size="728x90" title="Home-728x90-2nd"]'); ?>
                             </div>
                             <div class="col-xs-12 col-sm-6">
                                 <div class="heading"><h3>এডুবাজার</h3></div>
@@ -654,7 +544,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                
@@ -692,7 +582,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                
@@ -733,7 +623,7 @@ require get_template_directory() . '/inc/settings.php';
                                             ?> 
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                 
@@ -773,7 +663,7 @@ require get_template_directory() . '/inc/settings.php';
                         </div>
                         <div class="row mrb20">
                             <div class="col-xs-12 col-sm-12 addvertise">
-                                <?php echo do_shortcode('[amads id="933" size="728x90" title="Home-728x90-3rd"]'); ?>
+                            <?php echo do_shortcode('[amads id="933" size="728x90" title="Home-728x90-3rd"]'); ?>
                             </div>
                             <div class="col-xs-12 col-sm-12">
                                 <div class="heading"><h3>এগ্রিবিজনেস</h3></div>
@@ -787,7 +677,7 @@ require get_template_directory() . '/inc/settings.php';
                                             ?> 
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-12 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                  
@@ -838,7 +728,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                  
@@ -876,7 +766,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                  
@@ -905,7 +795,7 @@ require get_template_directory() . '/inc/settings.php';
                         </div>
                         <div class="row mrb20">
                             <div class="col-xs-12 col-sm-12 addvertise">
-                                <?php echo do_shortcode('[amads id="935" size="728x90" title="Home-728×90-4th"]'); ?>
+                            <?php echo do_shortcode('[amads id="935" size="728x90" title="Home-728×90-4th"]'); ?>
                             </div>
                             <div class="col-xs-12 col-sm-6">
                                 <div class="heading"><h3>এনার্জি-পাওয়ার</h3></div>
@@ -919,7 +809,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                   
@@ -957,7 +847,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                 
@@ -998,7 +888,7 @@ require get_template_directory() . '/inc/settings.php';
                                             ?> 
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-12 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                  
@@ -1049,7 +939,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                   
@@ -1087,7 +977,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                 
@@ -1116,7 +1006,7 @@ require get_template_directory() . '/inc/settings.php';
                         </div>
                         <div class="row mrb20">
                             <div class="col-xs-12 col-sm-12 addvertise">
-                                <?php echo do_shortcode('[amads id="936" size="728x90" title="Home-728×90-5th"]'); ?>
+                            <?php echo do_shortcode('[amads id="936" size="728x90" title="Home-728×90-5th"]'); ?>
                             </div>
                             <div class="col-xs-12 col-sm-6">
                                 <div class="heading"><h3>গার্মেন্টস-ক্লথিং</h3></div>
@@ -1130,7 +1020,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                   
@@ -1168,7 +1058,7 @@ require get_template_directory() . '/inc/settings.php';
                                         <div class="news-item">
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                 
@@ -1209,7 +1099,7 @@ require get_template_directory() . '/inc/settings.php';
                                             ?> 
                                             <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                             <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-12 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                             <?php endif; ?>
                                             <?php echo excerpt(15) ?>
                                             <?php echo read_more(get_the_ID()); ?>                                 
@@ -1248,7 +1138,108 @@ require get_template_directory() . '/inc/settings.php';
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-5">                       
+                    <div class="col-xs-12 col-sm-5">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 addvertise">
+                                <?php echo do_shortcode('[amads id="3627" size="468x60" title="Home Spacial Edition"]'); ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="heading">
+                                    <h3 class="panel-heading">পুঁজিবাজার</h3>
+                                </div>
+                                <ul class="list-parent">
+                                    <?php
+                                    /*
+                                     * STICKY POSTS
+                                     */
+                                    $args_sticky = array(
+                                        'posts_per_page' => 1,
+                                        'cat' => $cat_stockmarket,
+                                        'post__in' => get_option('sticky_posts'),
+                                        'post_status' => 'publish',
+                                    );
+                                    $the_query = new WP_Query($args_sticky);
+                                    while ($the_query->have_posts()) : $the_query->the_post();
+                                        ?> 
+                                        <li class="list-item">
+                                            <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
+                                            <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
+                                                <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <?php endif; ?>
+                                            <?php echo excerpt(15) ?>
+                                            <p class="rm-holder">
+                                                <?php echo read_more(get_the_ID()); ?>
+                                            </p>                                   
+                                        </li>
+                                        <?php
+                                    endwhile;
+                                    wp_reset_postdata();
+                                    /*
+                                     * NON-STICKY POSTS
+                                     */
+                                    $args = array(
+                                        'posts_per_page' => 4,
+                                        'cat' => $cat_stockmarket,
+                                        'post__not_in' => get_option('sticky_posts'),
+                                        'post_status' => 'publish',
+                                    );
+                                    $the_query = new WP_Query($args);
+                                    while ($the_query->have_posts()) : $the_query->the_post();
+                                        ?>
+                                        <li class="list-item">
+                                            <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
+                                                <div class="col-xs-4 col-sm-4 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <?php endif; ?>  
+                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                        </li>
+                                        <?php
+                                    endwhile;
+                                    wp_reset_postdata();
+                                    ?>
+                                    <li class="list-item rmholder">
+                                        <?php echo category_read_more($cat_stockmarket); ?> 
+                                    </li>  
+                                </ul>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12">
+                                        <h4><span style="color:red">সরাসরি সম্প্রচার</span></h4>
+                                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/11su7nqrT0A?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>                                       
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="heading">
+                                            <h3 class="panel-heading">পুঁজিবাজার অভিমত</h3>
+                                        </div>
+                                        <?php
+                                        $args = array('posts_per_page' => 1, 'post_status' => 'publish', 'category' => $cat_stockmarket_opinion);
+                                        $postslist = get_posts($args);
+                                        foreach ($postslist as $index => $post) :
+                                            setup_postdata($post);
+                                            ?> 
+                                            <div>                                         
+                                                <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
+                                                    <a href="<?php the_permalink(); ?>"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></a>
+                                                <?php endif; ?>
+                                                <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>                                 
+                                            </div>
+                                            <?php
+                                        endforeach;
+                                        wp_reset_postdata();
+                                        ?>
+
+                                        <div class="rmholder">
+                                            <?php echo category_read_more($cat_stockmarket_opinion); ?> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 addvertise">
                                 <?php echo do_shortcode('[amads id="681" size="336x280" title="Home sidebar-1 445x280"]'); ?>
@@ -1263,14 +1254,14 @@ require get_template_directory() . '/inc/settings.php';
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
                                     $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <p class="rmholder">
@@ -1278,15 +1269,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12">
@@ -1303,26 +1294,26 @@ require get_template_directory() . '/inc/settings.php';
                                 <?php echo do_shortcode('[amads id="683" size="468x60" title="Home sidebar-2 445×80"]'); ?>
                             </div>
                         </div>                        
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12">
-                                <div class="heading">
-                                    <h3 class="panel-heading">সারাদেশ</h3>
-                                </div>
-                                <?php
-                                $args = array('posts_per_page' => 4, 'post_status' => 'publish', 'category' => $cat_saradesh);
-                                $postslist = get_posts($args);
-                                foreach ($postslist as $index => $post) :
-                                    setup_postdata($post);
-                                    $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="heading">
+                                            <h3 class="panel-heading">সারাদেশ</h3>
+                                        </div>
+                                        <?php
+                                        $args = array('posts_per_page' => 4, 'post_status' => 'publish', 'category' => $cat_saradesh);
+                                        $postslist = get_posts($args);
+                                        foreach ($postslist as $index => $post) :
+                                            setup_postdata($post);
+                                            $divclose = false;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <?php echo excerpt(15) ?>
                                         <p class="rmholder">
@@ -1330,46 +1321,46 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
-                                ?>
-                                <div class="rmholder">
-                                    <?php echo category_read_more($cat_saradesh); ?> 
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
+                                        ?>
+                                        <div class="rmholder">
+                                            <?php echo category_read_more($cat_saradesh); ?> 
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
+                            <div class="row">
                             <div class="col-xs-12 col-sm-12 addvertise">
                                 <?php echo do_shortcode('[amads id="685" size="468x60" title="Home sidebar-3 445x80"]'); ?>
                             </div>
                         </div>
                         <div class="row">            
-                            <div class="col-xs-12 col-sm-12">
-                                <div class="heading">
-                                    <h3 class="panel-heading">জেলার সংবাদ</h3>
-                                </div>
-                                <?php
-                                $args = array('posts_per_page' => 4, 'post_status' => 'publish', 'category' => $cat_district);
-                                $postslist = get_posts($args);
-                                foreach ($postslist as $index => $post) :
-                                    setup_postdata($post);
-                                    $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                        <div class="col-xs-12 col-sm-12">
+                                        <div class="heading">
+                                            <h3 class="panel-heading">জেলার সংবাদ</h3>
+                                        </div>
+                                        <?php
+                                        $args = array('posts_per_page' => 4, 'post_status' => 'publish', 'category' => $cat_district);
+                                        $postslist = get_posts($args);
+                                        foreach ($postslist as $index => $post) :
+                                            setup_postdata($post);
+                                            $divclose = false;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <?php echo excerpt(15) ?>
                                         <p class="rmholder">
@@ -1377,21 +1368,21 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
-                                ?>
-                                <div class="rmholder">
-                                    <?php echo category_read_more($cat_district); ?> 
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
+                                        ?>
+                                        <div class="rmholder">
+                                            <?php echo category_read_more($cat_district); ?> 
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 addvertise">
                                 <?php echo do_shortcode('[amads id="687" size="468x60" title="Home sidebar-4 445×80"]'); ?>
@@ -1407,16 +1398,16 @@ require get_template_directory() . '/inc/settings.php';
                                 $postslist = get_posts($args);
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
-                                    $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                $divclose = false;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <?php echo excerpt(15) ?>
                                         <p class="rmholder">
@@ -1424,15 +1415,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="rmholder">
                                     <?php echo category_read_more($cat_politics); ?> 
@@ -1455,15 +1446,15 @@ require get_template_directory() . '/inc/settings.php';
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
                                     $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <?php echo excerpt(15) ?>
                                         <p class="rmholder">
@@ -1471,15 +1462,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="rmholder">
                                     <?php echo category_read_more($cat_international); ?> 
@@ -1502,14 +1493,14 @@ require get_template_directory() . '/inc/settings.php';
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
                                     $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <p class="rmholder">
@@ -1517,15 +1508,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="rmholder">
                                     <?php echo category_read_more($cat_showbiz); ?> 
@@ -1548,14 +1539,14 @@ require get_template_directory() . '/inc/settings.php';
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
                                     $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">                         
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <?php //echo excerpt(15) ?>
@@ -1564,15 +1555,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="rmholder">
                                     <?php echo category_read_more($cat_life_style); ?> 
@@ -1595,14 +1586,14 @@ require get_template_directory() . '/inc/settings.php';
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
                                     $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6"> 
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                         <?php //echo excerpt(15) ?>
@@ -1611,15 +1602,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="rmholder">
                                     <?php echo category_read_more($cat_job); ?> 
@@ -1641,16 +1632,16 @@ require get_template_directory() . '/inc/settings.php';
                                 $postslist = get_posts($args);
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
-                                    $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                $divclose = false;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <?php echo excerpt(15) ?>
                                         <p class="rmholder">
@@ -1658,15 +1649,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="rmholder">
                                     <?php echo category_read_more($cat_sahitto); ?> 
@@ -1689,15 +1680,15 @@ require get_template_directory() . '/inc/settings.php';
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
                                     $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <?php echo excerpt(15) ?>
                                         <p class="rmholder">
@@ -1705,15 +1696,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="rmholder">
                                     <?php echo category_read_more($cat_todays_woman); ?> 
@@ -1736,15 +1727,15 @@ require get_template_directory() . '/inc/settings.php';
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
                                     $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="col-sm-6 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <?php echo excerpt(15) ?>
                                         <p class="rmholder">
@@ -1752,15 +1743,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="rmholder">
                                     <?php echo category_read_more($cat_childreen); ?> 
@@ -1781,14 +1772,14 @@ require get_template_directory() . '/inc/settings.php';
                                 foreach ($postslist as $index => $post) :
                                     setup_postdata($post);
                                     $divclose = false;
-                                    if ($index % 2 == 0):
-                                        echo '<div class="row">';
-                                        $divclose = true;
-                                    endif;
+                                 if($index %2 == 0):
+                                     echo '<div class="row">';
+                                 $divclose = true;
+                                 endif;
                                     ?> 
                                     <div class="col-xs-12 col-sm-6">
                                         <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                            <div class="col-xs-3 col-sm-12 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                            <div class="plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
                                         <?php endif; ?>
                                         <h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> 
                                         <p class="rmholder">
@@ -1796,15 +1787,15 @@ require get_template_directory() . '/inc/settings.php';
                                         </p>                                   
                                     </div>
                                     <?php
-                                    if ($index > 0 && $index % 2 != 0):
-                                        echo '</div>';
+                                    if($index > 0 && $index % 2 != 0):
+                                     echo '</div>';
                                         $divclose = false;
                                     endif;
                                 endforeach;
                                 wp_reset_postdata();
-                                if ($divclose):
-                                    echo '</div>';
-                                endif;
+                                if($divclose):
+                                     echo '</div>';
+                                 endif;
                                 ?>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12">
@@ -1816,7 +1807,7 @@ require get_template_directory() . '/inc/settings.php';
                                 <div class="row">&nbsp;</div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 hidden-xs-down">
+                            <div class="col-xs-12 col-sm-12">
                                 <?php
                                 $args = array(
                                     'before_widget' => '<div class="widget">',

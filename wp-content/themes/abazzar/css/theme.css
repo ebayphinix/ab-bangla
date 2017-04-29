@@ -7321,6 +7321,10 @@ a.skip-link {
     padding-left: 25px;
     margin-right: 30px;
     text-align: left;}
+.featured-image{
+    padding-left: 0px;
+    padding-right: 0px;
+}
 .search-box{ margin-top: 10px;}
 .search-form{ margin-right: 10px;}
 #searchform .form-control{padding: 0.3rem 0.75rem}
@@ -7392,7 +7396,7 @@ a.skip-link {
     /*    p.bangla_date {font-size: 85%;}*/
 }
 @media screen and (max-width: 992px) {
-    body{font-size: 70%; line-height: normal;}
+    body{font-size: 70%; line-height: normal;text-align: justify;}
     h1, h2, h3, h4, h5, h6,
     .h1, .h2, .h3, .h4, .h5, .h6 {font-size: 100%;}
     /*    p.bangla_date {font-size: 70%;}*/
@@ -7401,7 +7405,7 @@ a.skip-link {
     .heading h3, .sidebar-head, .sidebar-head h3{font-size: 12px;}
 }
 @media screen and (max-width: 768px) {
-    body{font-size: 50%;line-height: normal;} 
+    body{font-size: 50%;line-height: normal;text-align: justify;} 
     h1, h2, h3, h4, h5, h6,
     .h1, .h2, .h3, .h4, .h5, .h6 {font-size: 100%;}
     p.bangla_date {font-size: 100%;}
@@ -7412,22 +7416,28 @@ a.skip-link {
     .heading h3, .sidebar-head, .sidebar-head h3{font-size: 11px;}
 }
 @media screen and (max-width: 684px) {
-    body{font-size: 54%;line-height: normal;} 
+    body{font-size: 54%;line-height: normal;text-align: justify;} 
 }
 @media screen and (max-width: 570px) {
-    body{font-size: 40%;line-height: normal;} 
+    body{font-size: 40%;line-height: normal;text-align: justify;} 
 }
 @media screen and (max-width: 480px) {
-    body{font-size: 60%; line-height: normal;}
+    body{font-size: 90%; line-height: normal; text-align: justify;}
+    .navbar #main-menu {float: none;}
     h1, h2, h3, h4, h5, h6,
     .h1, .h2, .h3, .h4, .h5, .h6 {font-size: 100%;}
     p.bangla_date {font-size: 100%;}
     .ab-other a{font-size: 100%;}
     .navbar-nav .nav-item {
-        border-right: 0px solid #5cb85c;}
+        border-right: 0px solid #5cb85c;
+        border-bottom: 1px solid #ccc !important;
+        display: block;}
     .navbar-nav .nav-link {
         padding-bottom: 0.125rem;
         padding-top: 0.125rem;
     }
-    .heading h3, .sidebar-head, .sidebar-head h3{font-size: 9px;}    
+    .heading h3, .sidebar-head, .sidebar-head h3{font-size: 18px;}  
+    .featured-image {
+        padding-right: 15px;
+    }
 }

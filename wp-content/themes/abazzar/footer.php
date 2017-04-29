@@ -80,7 +80,7 @@
         );
     });
 </script>
-<div class="fix facebooklike">
+<div class="fix facebooklike hidden-xs-down">
     <div id="facebookcontainer">
         <div class="fb_close_box"></div>
         <div id="inner_facebook">
