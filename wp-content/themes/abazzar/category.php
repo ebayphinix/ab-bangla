@@ -47,7 +47,7 @@ if (in_array($cat_id, $multimedia, true)) {
                                         get_template_part('loop-templates/content', 'category');
                                     } else {
                                         if ($index == 2) {
-                                            echo '<div class="row mrb20">';
+                                            echo '<div class="row mrb20 xs-mrb0">';
                                         }
                                         ?>
 
@@ -113,31 +113,31 @@ if (in_array($cat_id, $multimedia, true)) {
                                     <?php echo do_shortcode('[amads id="705" size="468x60" title="category sidebar-3"]'); ?>
                                 </div>
                             </div>
-                            <div class="row">
+<!--                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="706" size="468x60" title="category sidebar-4"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="706" size="468x60" title="category sidebar-4"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="707" size="468x60" title="category sidebar-5"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="707" size="468x60" title="category sidebar-5"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="708" size="468x60" title="category sidebar-6"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="708" size="468x60" title="category sidebar-6"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="709" size="468x60" title="category sidebar-7"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="709" size="468x60" title="category sidebar-7"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="710" size="468x60" title="category sidebar-8"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="710" size="468x60" title="category sidebar-8"]'); ?>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </main><!-- #main -->

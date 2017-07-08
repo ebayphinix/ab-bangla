@@ -48,11 +48,12 @@ if (in_array($category_parent, $multimedia, true)) {
 
                                 <?php
                                 // If comments are open or we have at least one comment, load up the comment template
-                                if (comments_open() || get_comments_number()) :
-                                    comments_template();
-                                endif;
+//                                if (comments_open() || get_comments_number()) :
+//                                    comments_template();
+//                                endif;
+                                
                                 ?>
-
+                            <div class="fb-comments" data-href="<?php the_permalink(); ?>" data-numposts="5" data-width="100%"data-order-by="reverse_time"></div>
                             <?php endwhile; // end of the loop. ?>
                         </div>
                         <div class="col-xs-12 col-sm-4">
@@ -73,7 +74,7 @@ if (in_array($category_parent, $multimedia, true)) {
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-12">
                                                 <?php if (wp_get_thumbnail_url(get_the_ID())): ?>
-                                                    <div class="col-xs-3 col-sm-3 plnone"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></div> 
+                                                <div class="col-xs-5 col-sm-3 plnone"><a href="<?php the_permalink(); ?>"><img src="<?php echo wp_get_thumbnail_url(get_the_ID(), 'thumbnail'); ?>" alt="<?php the_title(); ?>"/></a></div> 
                                                 <?php endif; ?>  
                                                 <p> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p> 
                                             </div>
@@ -108,41 +109,41 @@ if (in_array($category_parent, $multimedia, true)) {
                                     <?php echo do_shortcode('[amads id="715" size="468x60" title="single sidebar-3"]'); ?>
                                 </div>
                             </div>
-                            <div class="row">
+<!--                        <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
                                     <?php echo do_shortcode('[amads id="716" size="468x60" title="single sidebar-4"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="717" size="468x60" title="single sidebar-5"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="717" size="468x60" title="single sidebar-5"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="718" size="468x60" title="single sidebar-6"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="718" size="468x60" title="single sidebar-6"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="719" size="468x60" title="single sidebar-7"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="719" size="468x60" title="single sidebar-7"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="720" size="468x60" title="single sidebar-8"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="720" size="468x60" title="single sidebar-8"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="721" size="468x60" title="single sidebar-9"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="721" size="468x60" title="single sidebar-9"]'); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 addvertise">
-                                    <?php echo do_shortcode('[amads id="722" size="468x60" title="single sidebar-10"]'); ?>
+                                    <?php //echo do_shortcode('[amads id="722" size="468x60" title="single sidebar-10"]'); ?>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>  
                     </div>
                 </main><!-- #main -->

@@ -4,11 +4,11 @@
  */
 ?>
 
-<div class="row mrb20" id="news-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="row mrb20 border-bottom-cat-xs" id="news-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="col-xs-12 col-sm-12">
             <header class="entry-header">
 
-                <?php the_title(sprintf('<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h4>'); ?>
+                <?php the_title(sprintf('<h1><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h1>'); ?>
 
                 <?php 
                 if ('post' == get_post_type()) : ?>
@@ -20,8 +20,8 @@
                 <?php endif; ?>
 
             </header><!-- .entry-header -->
-            <div class="col-xs-12 col-sm-4 plnone">
-                <?php echo get_the_post_thumbnail($post->ID, 'thumbnail'); ?> 
+            <div class="col-xs-12 col-sm-5 plnone">
+                <a href="<?php echo esc_url(get_permalink()); ?>"><?php echo get_the_post_thumbnail($post->ID, 'medium'); ?></a> 
             </div>
             <div class="entry-content">
 

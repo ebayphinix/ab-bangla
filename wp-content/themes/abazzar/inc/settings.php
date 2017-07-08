@@ -4,7 +4,7 @@
  * Mizanur Rahman
  */
 // Declaration fo category variable
- $cat_shironam  = 54;
+ $cat_shironam  = 1;
  $cat_prochod  = 54;
  $cat_stockmarket  = 2;
  $cat_stockmarket_opinion  = 52;

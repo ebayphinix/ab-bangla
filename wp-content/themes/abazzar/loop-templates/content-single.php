@@ -8,7 +8,7 @@
 
     <header class="entry-header">
 
-        <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
+        <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 
         <div class="entry-meta">
 
@@ -29,9 +29,11 @@
             </div>
         </div>
     <?php else: ?>
+    <?php if (wp_get_thumbnail_url($post->ID)): ?>
         <div class="col-xs-12 col-sm-7 plnone">
             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?> 
         </div>
+    <?php endif; ?>
     <?php endif; ?>
     <div class="entry-content">
 

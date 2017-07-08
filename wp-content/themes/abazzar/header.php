@@ -11,7 +11,7 @@
     <head>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="language" content="bengali"/>
-        <meta http-equiv="refresh" content="500"/>
+        <meta http-equiv="refresh" content="1500"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -40,12 +40,11 @@
                                         
                                     </div>
                                     <div class="col-xs-12 col-sm-9">
-                                        <div class="pull-right"><a class="login-link btn btn-abtv btn-xs font-eng" href="<?php echo esc_url(home_url('/login/')); ?>">Login</a></div>
                                         <ul class="social-links">
                                             <li class="fa-hover"><a href="https://www.facebook.com/dailyajkerbazar/" target="_blank"><i class="fa fa-facebook-square" style="padding: 0;"></i></a></li>
                                             <li class="fa-hover"><a href="https://twitter.com/dailyajkerbazar" target="_blank"><i class="fa fa-twitter-square" style="padding: 0;"></i></a></li>
                                             <li class="fa-hover"><a href="https://www.youtube.com/channel/UC4DE5hwZK0bzPUwKgXdkznw" target="_blank"><i class="fa fa-youtube-square" style="padding: 0;"></i></a></li>
-                                            <li class="fa-hover"><a href="https://plus.google.com/116783712858201464980" target="_blank"><i class="fa fa-google-plus-square" style="padding: 0;"></i></a></li>                                           
+                                            <li class="fa-hover"><a href="https://plus.google.com/103823107523334334849" target="_blank"><i class="fa fa-google-plus-square" style="padding: 0;"></i></a></li>                                           
                                         </ul>
                                     </div>
                                 </div>

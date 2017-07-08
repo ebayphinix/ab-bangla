@@ -74,9 +74,10 @@ function wp_get_thumbnail_url($id, $size = 'thumbnail')
     }
 }
 
-function read_more($post_id)
+function read_more($post_id, $hidden=false)
 {
-    return '<a class="readmore pull-right" href="' . get_permalink($post_id) . '"> বিস্তারিত...</a>';
+    $class =($hidden)?'':' hidden-xs-down';
+    return '<a class="readmore pull-right'. $class.'" href="' . get_permalink($post_id) . '"> বিস্তারিত...</a>';
 }
 
 function read_more_lalign($post_id)
@@ -84,11 +85,16 @@ function read_more_lalign($post_id)
     return '<a class="readmore" href="' . get_permalink($post_id) . '"> বিস্তারিত...</a>';
 }
 
-function category_read_more($category_id)
+function category_read_more($category_id, $more='')
 {
-    return '<a class="readmore pull-right" href="' . esc_url(get_category_link($category_id)) . '"> আরও...</a>';
+    $more = empty($more)?' আরো খবর':$more.' আরো খবর';
+    return '<a class="readmore pull-right" href="' . esc_url(get_category_link($category_id)) . '">'. $more . '</a>';
 }
-
+function category_link($category_id, $catname='')
+{
+    $catname = empty($catname)?'':$catname;
+    return '<a href="' . esc_url(get_category_link($category_id)) . '">'. $catname . '</a>';
+}
 function get_custom_field_values($key = 'youtube', $post_id)
 {
     $matches = '';
